@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace = "com.offcn.mapper.ShopMapper">
+    <select id="getShopList" resultType="com.offcn.bean.Shop">
+       select * from shop
+    </select>
+    
+    <insert id="saveInfo" >
+        insert into shop(id,username,password) values(#{id},#{username},#{password})
+    </insert>
+    <delete id="delectItem">
+        delete from shop WHERE id = #{id}
+    </delete>
+    <select id="updateItem" resultType="com.offcn.bean.Shop">
+       select id,username,password from shop  WHERE id = #{id}
+    </select>
+    
+    <update id="updateInfo" parameterType="com.offcn.bean.Shop">
+       UPDATE shop SET id=#{id},username=#{username},password=#{password} WHERE id = #{id}
+    </update>
+ </mapper>
